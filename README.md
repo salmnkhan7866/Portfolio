@@ -10,3 +10,5 @@ Docker compose run cmd :
 
 Docker compose stop cmd :
       docker compose down
+
+URL : http://localhost:8000
