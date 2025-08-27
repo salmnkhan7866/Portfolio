@@ -3,7 +3,7 @@ Build the Docker Image :
       docker build -t my-html-app .
 
 Run the Docker Container : 
-      docker run -p 8000:8000 my-html-app
+      docker run -p 9000:80 my-html-app
 
 Docker compose run cmd : 
       docker compose up -d
