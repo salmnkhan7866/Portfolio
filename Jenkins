@@ -24,7 +24,15 @@ pipeline {
         stage ('Run'){
             steps{
                 echo 'Running...'
-                bat 'docker run -d -p 8000:5000 myapp-webpage:latest'
+                bat 'docker run -d -p 9000:80 myapp-webpage:latest'
+                echo 'Run Successfully'
+            }
+        }
+
+        stage ('Docker Compose'){
+            steps{
+                echo 'Running...'
+                bat 'docker compose up -d'
                 echo 'Run Successfully'
             }
         }
@@ -39,3 +47,4 @@ pipeline {
     }
     
 }
+
