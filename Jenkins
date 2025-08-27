@@ -1,0 +1,41 @@
+pipeline {
+    agent {label 'Salman'}
+    
+    environment {
+        DOCKER_CREDENTIALS = credentials('Devops')  // ID from Jenkins
+    }
+
+     stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/salmnkhan7866/Portfolio.git'
+                // sh 'cd docker-jeckins'
+            }
+        }
+     
+        stage('build') {
+            steps {
+                echo 'building...'
+                bat 'docker build -t myapp-webpage:latest .'
+                echo 'build successfully'
+            }
+        }
+        
+        stage ('Run'){
+            steps{
+                echo 'Running...'
+                bat 'docker run -d -p 8000:5000 myapp-webpage:latest'
+                echo 'Run Successfully'
+            }
+        }
+        
+        stage ('Start'){
+            steps{
+                echo 'Starting...'
+                bat 'start chrome http://localhost:8000'
+                echo 'Started'
+            }
+        }
+    }
+    
+}
