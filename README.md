@@ -5,10 +5,4 @@ Build the Docker Image :
 Run the Docker Container : 
       docker run -p 9000:80 my-html-app
 
-Docker compose run cmd : 
-      docker compose up -d
-
-Docker compose stop cmd :
-      docker compose down
-
 URL : http://localhost:9000
